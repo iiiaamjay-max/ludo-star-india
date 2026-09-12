@@ -12,8 +12,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Extract Android project
-        run: |
-          unzip -o LudoStarIndia_Android_Project.zip
+        run: unzip -o LudoStarIndia_Android_Project.zip
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -24,8 +23,7 @@ jobs:
       - name: Build APK
         run: |
           cd LudoStarIndia_Android_Project
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
